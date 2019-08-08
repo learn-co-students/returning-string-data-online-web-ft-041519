@@ -8,6 +8,11 @@ class PostsController < ApplicationController
   def show
   end
 
+  def body
+    post = Post.find(params[:id])
+    render plain: post.description   #explicitly render plain text, so we call render with the :plain option.
+  end
+
   def new
     @post = Post.new
   end
